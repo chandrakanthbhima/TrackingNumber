@@ -1,4 +1,4 @@
-package com.trackingnumber.trn;
+package com.trackingnumber.trn.service;
 
 import org.springframework.stereotype.Service;
 import java.util.UUID;
@@ -10,4 +10,3 @@ public class TrackingNumberService {
 		return UUID.randomUUID().toString().substring(0, 16).toUpperCase(); 
 		}
 	}
-}
