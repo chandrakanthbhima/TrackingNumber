@@ -13,6 +13,8 @@ java {
 	}
 }
 
+apply plugin:'base'
+
 jar {
     manifest {
         attributes 'Main-Class': 'com.trackingnumber.trn.TrackingNumberApplication'
