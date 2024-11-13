@@ -4,13 +4,18 @@ server:
 spring:
   application:
     name: trackingnumber
-#  datasource:
-#    url: jdbc:h2:mem:trackingnumberdb
-#    driverClassName: org.h2.Driver
-#    username: sa
-#    password: password
+  datasource:
+    url: postgres://u3p71b2tjm0t1h:pf7f5c83890256500aa33235657b543836686118ca11bea5710c9af50583cb896@cd1goc44htrmfn.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d592rngglhddl8
+    driverClassName: org.postgresql.Driver
+    username: u3p71b2tjm0t1h
+    password: pf7f5c83890256500aa33235657b543836686118ca11bea5710c9af50583cb896
+# for H2
+#		driverClassName: org.h2.Driver
+#		username: sa
+#		password: password
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+#    database-platform: org.hibernate.dialect.H2Dialect
+     database-platform: org.hibernate.dialect.PostgreSQLDialect
   h2:
     console:
       enabled: true
