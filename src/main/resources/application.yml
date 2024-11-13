@@ -21,7 +21,7 @@ spring:
       enabled: true
   data:
     redis:
-      host: ec2-34-224-248-27.compute-1.amazonaws.com
-      port: 13520
-      password: p10cf95f4bb67f3fc3ba6bcbc232a5d8212fac342a0cf998fb5e9724a3156a06f
+      host: redis-10770.c244.us-east-1-2.ec2.redns.redis-cloud.com
+      port: 10770
+      password: HWReMj0qyR2guGiUu2HadB7E16zNpLg1
 
