@@ -1,6 +1,7 @@
 package com.trackingnumber.trn;
 
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -15,16 +16,26 @@ import com.trackingnumber.trn.model.TrackingNumberResponse;
 
 @SpringBootApplication
 public class TrackingNumberApplication {
+
+	@Value("${spring.data.redis.host}")
+	private String redisHost;
+
+	@Value("${spring.data.redis.port}")
+	private int redisPort;
+
+	@Value("${spring.data.redis.password}")
+	private String redisPassword;
+
 	public static void main(String[] args) {
 		SpringApplication.run(TrackingNumberApplication.class, args);
 	}
 
 	@Bean
-	public JedisConnectionFactory redisConnectionFactory() {
+	JedisConnectionFactory redisConnectionFactory() {
 		RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
-		redisStandaloneConfiguration.setHostName("redis-10770.c244.us-east-1-2.ec2.redns.redis-cloud.com");
-		redisStandaloneConfiguration.setPort(10770);
-		redisStandaloneConfiguration.setPassword("HWReMj0qyR2guGiUu2HadB7E16zNpLg1");
+		redisStandaloneConfiguration.setHostName(redisHost);
+		redisStandaloneConfiguration.setPort(redisPort);
+		redisStandaloneConfiguration.setPassword(redisPassword);
 
 		GenericObjectPoolConfig<?> poolConfig = new GenericObjectPoolConfig<>();
 		JedisClientConfiguration jedisClientConfiguration = JedisClientConfiguration.builder().usePooling()
@@ -34,7 +45,7 @@ public class TrackingNumberApplication {
 	}
 
 	@Bean
-	public RedisTemplate<String, TrackingNumberResponse> redisTemplate() {
+	RedisTemplate<String, TrackingNumberResponse> redisTemplate() {
 		RedisTemplate<String, TrackingNumberResponse> template = new RedisTemplate<>();
 		template.setConnectionFactory(redisConnectionFactory());
 		template.setKeySerializer(new StringRedisSerializer());
