@@ -4,11 +4,11 @@ server:
 spring:
   application:
     name: trackingnumber
-  datasource:
-    url: jdbc:h2:mem:trackingnumberdb
-    driverClassName: org.h2.Driver
-    username: sa
-    password: password
+#  datasource:
+#    url: jdbc:h2:mem:trackingnumberdb
+#    driverClassName: org.h2.Driver
+#    username: sa
+#    password: password
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
   h2:
