@@ -9,12 +9,7 @@ spring:
     driverClassName: org.postgresql.Driver
     username: u3p71b2tjm0t1h
     password: pf7f5c83890256500aa33235657b543836686118ca11bea5710c9af50583cb896
-# for H2
-#		driverClassName: org.h2.Driver
-#		username: sa
-#		password: password
   jpa:
-#    database-platform: org.hibernate.dialect.H2Dialect
      database-platform: org.hibernate.dialect.PostgreSQLDialect
   h2:
     console:
@@ -24,4 +19,3 @@ spring:
       host: redis-10770.c244.us-east-1-2.ec2.redns.redis-cloud.com
       port: 10770
       password: HWReMj0qyR2guGiUu2HadB7E16zNpLg1
-
